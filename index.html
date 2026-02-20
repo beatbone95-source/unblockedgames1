@@ -1,13 +1,102 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unblocked Games Hub</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Marquee Header -->
+    <div class="marquee-container">
+        <div class="marquee-content">
+            UNBLOCKED GAMES HUB • PLAY ANYWHERE • NO ADS • NO TRACKING • PURE ARCADE FUN • 100% FREE • UNBLOCKED GAMES HUB • PLAY ANYWHERE • NO ADS • NO TRACKING • PURE ARCADE FUN • 100% FREE •
+        </div>
+    </div>
 
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <div class="logo" onclick="showHome()">
+                <i data-lucide="gamepad-2"></i>
+                <h1>UNBLOCKED.IO</h1>
+            </div>
+
+            <div class="search-container">
+                <i data-lucide="search" class="search-icon"></i>
+                <input type="text" id="searchInput" placeholder="SEARCH GAMES..." oninput="filterGames()">
+            </div>
+
+            <div class="nav-links">
+                <span><i data-lucide="trophy"></i> Leaderboards</span>
+                <span><i data-lucide="zap"></i> New Games</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- Home View -->
+        <div id="homeView" class="game-grid">
+            <!-- Games will be injected here -->
+        </div>
+
+        <!-- Game Player View -->
+        <div id="gameView" class="game-player hidden">
+            <div class="game-header">
+                <div class="header-left">
+                    <button class="back-btn" onclick="showHome()">
+                        <i data-lucide="x"></i>
+                    </button>
+                    <h2 id="gameTitle">GAME TITLE</h2>
+                </div>
+                <div class="category-badge" id="gameCategory">CATEGORY</div>
+            </div>
+
+            <div class="canvas-container" id="canvasContainer">
+                <!-- Game Canvas will be here -->
+            </div>
+
+            <div class="game-info">
+                <h3>About this game</h3>
+                <p id="gameDescription">Description goes here...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <i data-lucide="gamepad-2"></i>
+                    <span>UNBLOCKED.IO</span>
+                </div>
+                <p>The ultimate destination for unblocked browser games. Built for speed, privacy, and fun.</p>
+            </div>
+            <div class="footer-links">
+                <span class="link-title">Quick Links</span>
+                <a href="#">Terms</a>
+                <a href="#">Privacy</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-links">
+                <span class="link-title">Community</span>
+                <a href="#">Discord</a>
+                <a href="#">GitHub</a>
+                <a href="#">Submit</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 UNBLOCKED GAMES HUB • NO COOKIES • JUST GAMES
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

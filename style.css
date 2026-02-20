@@ -1,0 +1,346 @@
+:root {
+    --neon-green: #00FF00;
+    --brutal-black: #000000;
+    --gallery-white: #FFFFFF;
+    --bg-gray: #F0F0F0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-box: border-box;
+}
+
+body {
+    background-color: var(--bg-gray);
+    color: var(--brutal-black);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Brutalist Utilities */
+.brutal-border {
+    border: 4px solid var(--brutal-black);
+    box-shadow: 8px 8px 0px var(--brutal-black);
+    transition: all 0.1s ease;
+}
+
+.brutal-border:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 10px 10px 0px var(--brutal-black);
+}
+
+.brutal-btn {
+    background: var(--neon-green);
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 4px solid var(--brutal-black);
+    box-shadow: 4px 4px 0px var(--brutal-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.brutal-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px var(--brutal-black);
+}
+
+/* Marquee */
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    background: var(--brutal-black);
+    color: var(--neon-green);
+    padding: 12px 0;
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    border-bottom: 4px solid var(--brutal-black);
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Navigation */
+.nav-bar {
+    background: white;
+    border-bottom: 4px solid var(--brutal-black);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.logo h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: 2rem;
+    letter-spacing: -1px;
+}
+
+.search-container {
+    position: relative;
+    flex-grow: 1;
+    max-width: 500px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.4;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 12px 12px 12px 45px;
+    border: 4px solid var(--brutal-black);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.nav-links span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Main Content */
+.main-content {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    flex-grow: 1;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.game-card {
+    background: white;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.card-thumb {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #eee;
+    border: 2px solid var(--brutal-black);
+    margin-bottom: 1rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.game-card:hover img {
+    transform: scale(1.1);
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--brutal-black);
+    color: white;
+    padding: 4px 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+.game-card h3 {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.game-card p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-bottom: 1rem;
+    height: 3em;
+    overflow: hidden;
+}
+
+/* Game Player */
+.hidden { display: none !important; }
+
+.game-player {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-left h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+.back-btn {
+    background: white;
+    border: 3px solid var(--brutal-black);
+    padding: 8px;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    background: var(--brutal-black);
+    color: white;
+}
+
+.category-badge {
+    background: var(--brutal-black);
+    color: var(--neon-green);
+    padding: 5px 15px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: bold;
+}
+
+.canvas-container {
+    background: white;
+    border: 4px solid var(--brutal-black);
+    box-shadow: 12px 12px 0px var(--brutal-black);
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.game-info {
+    background: white;
+    border: 4px solid var(--brutal-black);
+    padding: 1.5rem;
+}
+
+.game-info h3 {
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+/* Footer */
+.footer {
+    background: var(--brutal-black);
+    color: white;
+    padding: 4rem 2rem 2rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+}
+
+.footer-brand p {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    margin-top: 1rem;
+    max-width: 300px;
+}
+
+.link-title {
+    color: var(--neon-green);
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 3rem auto 0;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    opacity: 0.4;
+}
+
+@media (max-width: 768px) {
+    .nav-content { flex-direction: column; }
+    .footer-content { grid-template-columns: 1fr; gap: 2rem; }
+    .header-left h2 { font-size: 1.5rem; }
+}
