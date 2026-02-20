@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;900&family=JetBrains+Mono&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Anton", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  --neon-green: #00FF00;
+  --brutal-black: #000000;
+  --gallery-white: #FFFFFF;
+}
+
+body {
+  background-color: var(--gallery-white);
+  color: var(--brutal-black);
+  font-family: var(--font-sans);
+}
+
+.brutal-border {
+  border: 4px solid var(--brutal-black);
+  box-shadow: 8px 8px 0px var(--brutal-black);
+  transition: all 0.1s ease;
+}
+
+.brutal-border:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0px var(--brutal-black);
+}
+
+.brutal-border:active {
+  transform: translate(2px, 2px);
+  box-shadow: 4px 4px 0px var(--brutal-black);
+}
+
+.brutal-btn {
+  background: var(--neon-green);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  background: var(--brutal-black);
+  color: var(--neon-green);
+  padding: 10px 0;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
